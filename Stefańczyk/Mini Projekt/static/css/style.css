@@ -1,0 +1,165 @@
+a{
+    color: whitesmoke;
+}
+
+input{
+    padding-top: 15px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 25px;
+    font-family: 'JetBrains Mono', monospace;
+}
+button{
+    font-size: 30px;
+    width: 300px;
+    height: 50px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgb(43, 59, 59);
+}
+.top{
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    line-height: 90px;
+    width: 100%;
+    background-color: rgb(69, 69, 175);
+    font-size: 30px;
+    color: rgb(176, 252, 255);
+    padding-left: 30px;
+    float: left;
+    display: block;
+
+}
+
+.main_admin{
+    top: 200px;
+    left: 0px;
+    height: 90%;
+    width: 100%;
+    background-color: rgb(194, 255, 255);
+    text-align: center;
+    font-size: 120px;
+    color: rgb(170, 203, 204);
+}
+
+.main{
+    top: 100px;
+    left: 0px;
+    height: 90%;
+    width: 100%;
+    background-color: rgb(194, 255, 255);
+    text-align: center;
+    font-size: 120px;
+    color: rgb(170, 203, 204);
+}
+
+.div{
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.admin{
+    top: 100px;
+    left: 0px;
+    height: 100px;
+    line-height: 90px;
+    width: 100%;
+    background-color: rgb(204, 146, 39);
+    font-size: 30px;
+    color: rgb(176, 252, 255);
+    padding-left: 30px;
+    float: left;
+    display: block;
+}
+
+#top_admin{
+    position: absolute;
+    background-color: rgb(219, 62, 70);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#form{
+    padding-left: 40%;
+    text-align: left;
+    font-size: 40px;
+    color: rgb(66, 80, 80);
+}
+
+#main{
+    position: absolute;
+    top: 100px;
+    float: left;
+    padding-left: 30px;
+    padding-right: 30px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    line-height: 90px;
+    background-color: rgb(94, 105, 83);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#table1{
+    font-size: 25px;
+}
+
+#table2{
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.cell_0 {
+    padding-left: 5px;
+    width: 16vw;
+    height: 50px;
+    border: solid 1px;
+    border-color: rgb(219, 219, 114);
+}
+.cell_1 {
+    padding-left: 5px;
+    width: 30vw;
+    height: 50px;
+    border: solid 1px;
+    border-color: rgb(219, 219, 114);
+}
+.cell_2 {
+    padding-left: 5px;
+    width: 16vw;
+    height: 50px;
+    border: solid 1px;
+    border-color: rgb(219, 219, 114);
+}
+.cell_3 {
+    padding-left: 5px;
+    width: 16vw;
+    height: 50px;
+    border: solid 1px;
+    border-color: rgb(219, 219, 114);
+}
+.cell_4 {
+    padding-left: 5px;
+    width: 16vw;
+    height: 50px;
+    border: solid 1px;
+    border-color: rgb(219, 219, 114);
+}
+
+#form2{
+    font-size: 25px;
+}
+
+#top_panel{
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    line-height: 90px;
+    width: 100%;
+    background-color: rgb(110, 41, 47);
+    font-size: 30px;
+    color: rgb(176, 252, 255);
+    padding-left: 30px;
+    float: left;
+    display: block;
+
+}
