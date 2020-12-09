@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="top div">
+        <a href="/">main</a>
+        <a href="/register">register</a>
+        <a href="/login">login</a>
+        <a href="/admin">admin</a>
+    </div>
+    <div class="main div">register page
+        <form method="POST" action="/registerUser" id="form">
+            <label for="login">login:</label>
+            <input required type="text" name="login">
+            <br>
+            <label for="password">password:</label>
+            <input required type="password" name="password">
+            <br>
+            <label for="age">age:</label>
+            <input required type="number" name="age" min="10" max="65">
+            <br>
+            <label for="student">student:</label>
+            <input type="checkbox" name="student" value="yes">yes
+            <br>
+            <label for="gender">gender:</label>
+            <input required type="radio" name="gender" value="male">male
+            <input required type="radio" name="gender" value="female">female
+            <br>
+            <button name="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
