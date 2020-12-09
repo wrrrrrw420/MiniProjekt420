@@ -40,7 +40,7 @@ app.get("/login", function (req, res) {
 
 app.get("/admin", function (req, res) {
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><script src="js/script.js"></script><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
         res.sendFile(path.join(__dirname + "/static/admin.html"))
@@ -58,7 +58,7 @@ app.post("/registerUser", function (req, res) {
     if (taken == 0) {
         tab.push({ id: tab.length + 1, log: req.body.login, pass: req.body.password, age: req.body.age, student: req.body.student, gender: req.body.gender })
         tab1.push({ id: tab.length + 1, log: req.body.login, pass: req.body.password, age: req.body.age, student: req.body.student, gender: req.body.gender })
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><script src="js/script.js"></script><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div">Witaj ${req.body.login}, zostałeś zarejestrowany!</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Register</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div">Witaj ${req.body.login}, zostałeś zarejestrowany!</div></body></html>`)
         console.log(tab)
     }
     else {
@@ -69,7 +69,7 @@ app.post("/registerUser", function (req, res) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register</title>
-        <script src="js/script.js"></script>
+        
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     </head>
@@ -122,7 +122,7 @@ app.post("/logUserIn", function (req, res) {
         res.redirect("/admin")
     }
     else {
-        res.send(`<!DOCTYPE html>                <html lang="en">                                <head>                    <meta charset="UTF-8">                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                    <title>Login</title>                    <script src="js/script.js"></script>                    <link rel="stylesheet" href="css/style.css">                    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">                </head>                              <body>                    <div class="top div">                        <a href="/">main</a>                        <a href="/register">register</a>                        <a href="/login">login</a>                        <a href="/admin">admin</a>                    </div>                    <div class="main div">niepoprawne hasło lub login                       <form method="POST" action="/logUserIn" id="form">                            <label for="login">login:</label>                            <input required type="text" name="login">                           <br>                            <label for="password">password:</label>                            <input required type="password" name="password">                            <br>                            <button name="submit">Submit</button>                        </form>                    </div>                </body>                                </html>`)
+        res.send(`<!DOCTYPE html>                <html lang="en">                                <head>                    <meta charset="UTF-8">                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                    <title>Login</title>                                  <link rel="stylesheet" href="css/style.css">                    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">                </head>                              <body>                    <div class="top div">                        <a href="/">main</a>                        <a href="/register">register</a>                        <a href="/login">login</a>                        <a href="/admin">admin</a>                    </div>                    <div class="main div">niepoprawne hasło lub login                       <form method="POST" action="/logUserIn" id="form">                            <label for="login">login:</label>                            <input required type="text" name="login">                           <br>                            <label for="password">password:</label>                            <input required type="password" name="password">                            <br>                            <button name="submit">Submit</button>                        </form>                    </div>                </body>                                </html>`)
     }
 })
 
@@ -133,7 +133,7 @@ app.get("/logOut", function (req, res) {
 
 app.get("/show", function (req, res) {
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><script src="js/script.js"></script><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
         res.send(`<!DOCTYPE html>
@@ -142,8 +142,7 @@ app.get("/show", function (req, res) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>show</title>
-        <script src="js/script.js"></script>
+        <title>Show</title>
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     </head>
@@ -200,7 +199,7 @@ app.get("/show", function (req, res) {
 
 app.get("/gender", function (req, res) {
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><script src="js/script.js"></script><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
         res.send(`<!DOCTYPE html>
@@ -209,8 +208,8 @@ app.get("/gender", function (req, res) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>show</title>
-        <script src="js/script.js"></script>
+        <title>Gender</title>
+        
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     </head>
@@ -279,7 +278,7 @@ app.get("/sort", function (req, res) {
         sort = req.query.sort
     }
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><script src="js/script.js"></script><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
         if (sort == 0) {
@@ -300,8 +299,8 @@ app.get("/sort", function (req, res) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>show</title>
-        <script src="js/script.js"></script>
+        <title>Sort</title>
+       
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     </head>
@@ -369,8 +368,8 @@ app.get("/sort", function (req, res) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>show</title>
-        <script src="js/script.js"></script>
+        <title>Sort</title>
+        
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     </head>
