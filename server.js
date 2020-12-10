@@ -2,6 +2,7 @@ var express = require("express")
 var app = express()
 var PORT = process.env.PORT || 3000;
 var bodyParser = require("body-parser")
+
 app.use(express.static('static'))
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,7 +41,7 @@ app.get("/login", function (req, res) {
 
 app.get("/admin", function (req, res) {
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
         res.sendFile(path.join(__dirname + "/static/admin.html"))
@@ -58,7 +59,7 @@ app.post("/registerUser", function (req, res) {
     if (taken == 0) {
         tab.push({ id: tab.length + 1, log: req.body.login, pass: req.body.password, age: req.body.age, student: req.body.student, gender: req.body.gender })
         tab1.push({ id: tab.length + 1, log: req.body.login, pass: req.body.password, age: req.body.age, student: req.body.student, gender: req.body.gender })
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Register</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div">Witaj ${req.body.login}, zostałeś zarejestrowany!</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div">Witaj ${req.body.login}, zostałeś zarejestrowany!</div></body></html>`)
         console.log(tab)
     }
     else {
@@ -122,7 +123,7 @@ app.post("/logUserIn", function (req, res) {
         res.redirect("/admin")
     }
     else {
-        res.send(`<!DOCTYPE html>                <html lang="en">                                <head>                    <meta charset="UTF-8">                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                    <title>Login</title>                                  <link rel="stylesheet" href="css/style.css">                    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">                </head>                              <body>                    <div class="top div">                        <a href="/">main</a>                        <a href="/register">register</a>                        <a href="/login">login</a>                        <a href="/admin">admin</a>                    </div>                    <div class="main div">niepoprawne hasło lub login                       <form method="POST" action="/logUserIn" id="form">                            <label for="login">login:</label>                            <input required type="text" name="login">                           <br>                            <label for="password">password:</label>                            <input required type="password" name="password">                            <br>                            <button name="submit">Submit</button>                        </form>                    </div>                </body>                                </html>`)
+        res.send(`<!DOCTYPE html>                <html lang="en">                                <head>                    <meta charset="UTF-8">                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                    <title>Login</title>                    <link rel="stylesheet" href="css/style.css">                    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">                </head>                              <body>                    <div class="top div">                        <a href="/">main</a>                        <a href="/register">register</a>                        <a href="/login">login</a>                        <a href="/admin">admin</a>                    </div>                    <div class="main div">niepoprawne hasło lub login                       <form method="POST" action="/logUserIn" id="form">                            <label for="login">login:</label>                            <input required type="text" name="login">                           <br>                            <label for="password">password:</label>                            <input required type="password" name="password">                            <br>                            <button name="submit">Submit</button>                        </form>                    </div>                </body>                                </html>`)
     }
 })
 
@@ -133,303 +134,103 @@ app.get("/logOut", function (req, res) {
 
 app.get("/show", function (req, res) {
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Show</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
-        res.send(`<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <div class="top div"  id="top_panel">
-        <a href="/">main</a>
-        <a href="/register">register</a>
-        <a href="/login">login</a>
-        <a href="/admin">admin</a>
-        <a href="/logOut">logout</a>
-    </div>
-        <div id="main">
-            <a href="/sort">sort</a>
-            <a href="/gender">gender</a>
-            <a href="/show">show</a>
-        </div>
-        <script>
-        var tab1 = ${JSON.stringify(tab)}
-            
-            var table = document.createElement("table");
-            table.id = "table1";
-            for (y = 0; y < tab1.length; y++) {
-                var tr = document.createElement("tr");
-                table.appendChild(tr);
-                for (x = 0; x < 5; x++) {
-                    var td = document.createElement("td");
-                    td.id = "cell." + y + "." + x;
-                    td.classList.add("cell_" + x);
-                    if (x == 0) {
-                        td.innerHTML = "id: " + tab1[y].id;
-                    }
-                    else if (x == 1) {
-                        td.innerHTML = "user: " + tab1[y].log + " - " + tab1[y].pass;
-                    }
-                    else if (x == 2) {
-                        td.innerHTML = "age: " + tab1[y].age;
-                    }
-                    else if (x == 3) {
-                        td.innerHTML = "student: " + tab1[y].student;
-                    }
-                    else if (x == 4) {
-                        td.innerHTML = "gender: " + tab1[y].gender;
-                    }
-                    tr.appendChild(td);
-                };
-            };
-            document.getElementById("main").appendChild(table);
-
-        </script>
-    </body>  
-    </html>`)
+        var head = `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>show</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head>`
+        var topPanel = "<body><div class='top div'  id='top_panel'><a href='/'>main</a>        <a href='/register'>register</a>        <a href='/login'>login</a>    <a href='/admin'>admin</a>  <a href='/logOut'>logout</a></div><div id='main'><a href='/sort'>sort</a>  <a href='/gender'>gender</a>    <a href='/show'>show</a>"
+        var table = '<table id="table1">'
+        for (i = 0; i < tab.length; i++) {
+            var id = "<td class='cell_0'>id: " + tab[i].id + "</td>"
+            var user = "<td class='cell_1'>user: " + tab[i].log + " - " + tab[i].pass + "</td>"
+            var student = ""
+            if (tab[i].student == "yes") {
+                student = "<td class='cell_2'>student: " + tab[i].student + "</td>"
+            }
+            var age = "<td class='cell_3'>age: " + tab[i].age + "</td>"
+            var gender = "<td class='cell_4'>gender: " + tab[i].gender + "</td>"
+            table += "<tr>" + id + user + student + age + gender + "</tr>"
+        }
+        var fullPage = head + topPanel + table + "</table></div></body>"
+        res.send(fullPage)
     }
 })
 
 app.get("/gender", function (req, res) {
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gender</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
-        res.send(`<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gender</title>
-        
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <div class="top div"  id="top_panel">
-        <a href="/">main</a>
-        <a href="/register">register</a>
-        <a href="/login">login</a>
-        <a href="/admin">admin</a>
-        <a href="/logOut">logout</a>
-    </div>
-        <div id="main">
-            <a href="/sort">sort</a>
-            <a href="/gender">gender</a>
-            <a href="/show">show</a>
-        </div>
-        <script>
-        var tab1 = ${JSON.stringify(tab)}
-            
-            var table1 = document.createElement("table");
-        table1.id = "table1";
-        var table2 = document.createElement("table");
-        table2.id = "table2";
-        for (y = 0; y < tab1.length; y++) {
-            if (tab1[y].gender == "female") {
-                table = table1
+        var head = `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>show</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head>`
+        var topPanel = "<body><div class='top div'  id='top_panel'><a href='/'>main</a>        <a href='/register'>register</a>        <a href='/login'>login</a>    <a href='/admin'>admin</a>  <a href='/logOut'>logout</a></div><div id='main'><a href='/sort'>sort</a>  <a href='/gender'>gender</a>    <a href='/show'>show</a>"
+        var tableF = "<table id='table1'>"
+        var tableM = "<table id='table2'>"
+        for (i = 0; i < tab.length; i++) {
+            if (tab[i].gender == "female") {
+                var id = "<td class='cell_0'>id: " + tab[i].id + "</td>"
+                var user = "<td class='cell_1'>user: " + tab[i].log + " - " + tab[i].pass + "</td>"
+                var student = ""
+                if (tab[i].student == "yes") {
+                    student = "<td class='cell_2'>student: " + tab[i].student + "</td>"
+                }
+                var age = "<td class='cell_3'>age: " + tab[i].age + "</td>"
+                var gender = "<td class='cell_4'>gender: " + tab[i].gender + "</td>"
+                tableF += "<tr>" + id + user + student + age + gender + "</tr>"
+            } else {
+                var id = "<td class='cell_0'>id: " + tab[i].id + "</td>"
+                var user = "<td class='cell_1'>user: " + tab[i].log + " - " + tab[i].pass + "</td>"
+                var student = ""
+                if (tab[i].student == "yes") {
+                    student = "<td class='cell_2'>student: " + tab[i].student + "</td>"
+                }
+                var age = "<td class='cell_3'>age: " + tab[i].age + "</td>"
+                var gender = "<td class='cell_4'>gender: " + tab[i].gender + "</td>"
+                tableM += "<tr>" + id + user + student + age + gender + "</tr>"
             }
-            else {
-                table = table2
-            }
-            var tr = document.createElement("tr");
-            for (x = 0; x < 5; x++) {
-                var td = document.createElement("td");
-                td.id = "cell." + y + "." + x;
-                td.classList.add("cell_" + x);
-                if (x == 0) {
-                    td.innerHTML = "id: " + tab1[y].id;
-                }
-                else if (x == 1) {
-                    td.innerHTML = "user: " + tab1[y].log + " - " + tab1[y].pass;
-                }
-                else if (x == 2) {
-                    td.innerHTML = "age: " + tab1[y].age;
-                }
-                else if (x == 3) {
-                    td.innerHTML = "student: " + tab1[y].student;
-                }
-                else if (x == 4) {
-                    td.innerHTML = "gender: " + tab1[y].gender;
-                }
-                tr.appendChild(td);
-            }
-            table.appendChild(tr);
-        };
-        document.getElementById("main").appendChild(table1);
-        document.getElementById("main").appendChild(table2);
-        </script>
-    </body>  
-    </html>`)
+        }
+        let fullPage = head + topPanel + tableF + "</table>" + tableM + "</table></body>"
+        res.send(fullPage)
     }
 
 })
 
 app.get("/sort", function (req, res) {
-    if (req.query.sort) {
-        sort = req.query.sort
-    }
     if (logged == 0) {
-        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Main</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
+        res.send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sort</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head><body><div class="top div" id="top_admin"><a href="/">main</a>                    <a href="/register">register</a>                    <a href="/login">login</a>                    <a href="/admin">admin</a></div><div class="main div" id="main_admin">brak dostępu do tej strony</div></body></html>`)
     }
     else {
+        if (req.query.sort != null) {
+            sort = req.query.sort
+        }
         if (sort == 0) {
             tab1.sort(function (a, b) {
-                return parseFloat(a.age) - parseFloat(b.age);
-            });
+                return parseFloat(b.age) - parseFloat(a.age)
+            })
+            var changeTable = '<form action ="/sort" onchange="this.submit()"><input type="radio" name="sort" value = "1">rosnąco<input type="radio" name="sort" value = "0" style="margin-left: 30px" checked="checked">malejąco</form>'
         }
         else {
             tab1.sort(function (a, b) {
-
-                return parseFloat(b.age) - parseFloat(a.age);
-            });
+                return parseFloat(a.age) - parseFloat(b.age)
+            })
+            var changeTable = '<form action ="/sort" onchange="this.submit()"><input type="radio" name="sort" value = "1" checked="checked">rosnąco<input type="radio" name="sort" value = "0" style="margin-left: 30px">malejąco</form>'
         }
-        if (sort == 0) {
-            res.send(`<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sort</title>
-       
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <div class="top div"  id="top_panel">
-        <a href="/">main</a>
-        <a href="/register">register</a>
-        <a href="/login">login</a>
-        <a href="/admin">admin</a>
-        <a href="/logOut">logout</a>
-    </div>
-        <div id="main">
-            <a href="/sort">sort</a>
-            <a href="/gender">gender</a>
-            <a href="/show">show</a>
-            <form id="form2" onchange="this.submit()" method="GET>
-                <label for="sort">rosnąco:</label>
-                <input required type="radio" name="sort" value="0" checked="checked">
-                <label for="sort">malejąco:</label>
-                <input required type="radio" name="sort" value="1">
-            </form>
-        </div>
-        <script>
-            var tab1 = ${JSON.stringify(tab1)}     
-            var table = document.createElement("table");
-            table.id = "table1";
-            for (y = 0; y < tab1.length; y++) {
-                var tr = document.createElement("tr");
-                table.appendChild(tr);
-                for (x = 0; x < 5; x++) {
-                    var td = document.createElement("td");
-                    td.id = "cell." + y + "." + x;
-                    td.classList.add("cell_" + x);
-                    if (x == 0) {
-                        td.innerHTML = "id: " + tab1[y].id;
-                    }
-                    else if (x == 1) {
-                        td.innerHTML = "user: " + tab1[y].log + " - " + tab1[y].pass;
-                    }
-                    else if (x == 2) {
-                        td.innerHTML = "age: " + tab1[y].age;
-                    }
-                    else if (x == 3) {
-                        td.innerHTML = "student: "
-                        if(tab1[y].student == "yes"){
-                            td.innerHTML = "student: " + tab1[y].student;
-                        }
-                    }
-                    else if (x == 4) {
-                        td.innerHTML = "gender: " + tab1[y].gender;
-                    }
-                    tr.appendChild(td);
-                };
-            };
-            document.getElementById("main").appendChild(table);
-        </script>
-    </body>  
-    </html>`)
+        var head = `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>show</title><link rel="stylesheet" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"></head>`
+        var topPanel = "<body><div class='top div'  id='top_panel'><a href='/'>main</a>        <a href='/register'>register</a>        <a href='/login'>login</a>    <a href='/admin'>admin</a>  <a href='/logOut'>logout</a></div><div id='main'><a href='/sort'>sort</a>  <a href='/gender'>gender</a>    <a href='/show'>show</a>"
 
+        var table = '<table id="table1">'
+        for (i = 0; i < tab1.length; i++) {
+            var id = "<td class='cell_0'>id: " + tab1[i].id + "</td>"
+            var user = "<td class='cell_1'>user: " + tab1[i].log + " - " + tab1[i].pass + "</td>"
+            var student = ""
+            if (tab1[i].student == "yes") {
+                student = "<td class='cell_2'>student: " + tab1[i].student + "</td>"
+            }
+            var age = "<td class='cell_3'>age: " + tab1[i].age + "</td>"
+            var gender = "<td class='cell_4'>gender: " + tab1[i].gender + "</td>"
+            table += "<tr>" + id + user + student + age + gender + "</tr>"
         }
-        else {
-            res.send(`<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sort</title>
-        
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <div class="top div"  id="top_panel">
-        <a href="/">main</a>
-        <a href="/register">register</a>
-        <a href="/login">login</a>
-        <a href="/admin">admin</a>
-        <a href="/logOut">logout</a>
-    </div>
-        <div id="main">
-            <a href="/sort">sort</a>
-            <a href="/gender">gender</a>
-            <a href="/show">show</a>
-            <form id="form2" onchange=" this.submit()" method="GET>
-                <label for="sort">rosnąco:</label>
-                <input required type="radio" name="sort" value="0">
-                <label for="sort">malejąco:</label>
-                <input required type="radio" name="sort" value="1" checked="checked">
-            </form>
-        </div>
-        <script>
-            var tab1 = ${JSON.stringify(tab1)}     
-            var table = document.createElement("table");
-            table.id = "table1";
-            for (y = 0; y < tab1.length; y++) {
-                var tr = document.createElement("tr");
-                table.appendChild(tr);
-                for (x = 0; x < 5; x++) {
-                    var td = document.createElement("td");
-                    td.id = "cell." + y + "." + x;
-                    td.classList.add("cell_" + x);
-                    if (x == 0) {
-                        td.innerHTML = "id: " + tab1[y].id;
-                    }
-                    else if (x == 1) {
-                        td.innerHTML = "user: " + tab1[y].log + " - " + tab1[y].pass;
-                    }
-                    else if (x == 2) {
-                        td.innerHTML = "age: " + tab1[y].age;
-                    }
-                    else if (x == 3) {
-                        td.innerHTML = "student: "
-                        if(tab1[y].student == "yes"){
-                            td.innerHTML = "student: " + tab1[y].student;
-                        }
-                    }
-                    else if (x == 4) {
-                        td.innerHTML = "gender: " + tab1[y].gender;
-                    }
-                    tr.appendChild(td);
-                };
-            };
-            document.getElementById("main").appendChild(table);
-        </script>
-    </body>  
-    </html>`)
-
-        }
+        var fullPage = head + topPanel + changeTable + table + "</table></div></body>"
+        res.send(fullPage)
     }
 })
 
